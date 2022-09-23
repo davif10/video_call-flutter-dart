@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:video_call/modules/home/controllers/home_controller.dart';
 import 'package:agora_rtc_engine/rtc_local_view.dart' as RtcLocalView;
 import 'package:agora_rtc_engine/rtc_remote_view.dart' as RtcRemoteView;
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Home extends GetView<HomeController> {
   const Home({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class Home extends GetView<HomeController> {
           child: Text(
             "Video Call",
             style: GoogleFonts.lobster(
-                textStyle: TextStyle(color: Colors.white, fontSize: 35)),
+                textStyle: TextStyle(color: Colors.white, fontSize: 35.sp)),
           ),
         ),
       ),
@@ -61,7 +62,7 @@ class Home extends GetView<HomeController> {
                 child: Text(
                   "Para iniciar a chamada de vídeo, clique no botão abaixo!",
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 22, color: Colors.white),
+                  style: TextStyle(fontSize: 22.sp, color: Colors.white),
                 ),
               ),
               OutlinedButton(
@@ -75,10 +76,10 @@ class Home extends GetView<HomeController> {
                 onPressed: () {
                   controller.initAgora();
                 },
-                child: const Icon(
+                child:  Icon(
                   Icons.videocam,
                   color: Colors.white,
-                  size: 50,
+                  size: 50.sp,
                 ),
               )
             ],
@@ -113,15 +114,15 @@ class Home extends GetView<HomeController> {
                   IconButton(
                     color: Colors.white,
                       onPressed: (){},
-                      icon: Icon(Icons.camera_alt, color: Colors.black, size: 40)),
+                      icon: Icon(Icons.camera_alt, color: Colors.black, size: 40.sp)),
                   IconButton(
                       color: Colors.red,
                       onPressed: ()=> _sair(),
-                      icon: Icon(Icons.phone_disabled, color: Colors.white, size: 40)),
+                      icon: Icon(Icons.phone_disabled, color: Colors.white, size: 40.sp)),
                   IconButton(
                       color: Colors.white,
                       onPressed: (){},
-                      icon: Icon(Icons.mic_off_rounded, color: Colors.black, size: 40,)),
+                      icon: Icon(Icons.mic_off_rounded, color: Colors.black, size: 40.sp,)),
                 ],
               ),
             )
@@ -136,8 +137,8 @@ class Home extends GetView<HomeController> {
                   (e) => GestureDetector(
                     onTap: () {},
                     child: SizedBox(
-                      width: 120,
-                      height: 120,
+                      width: 120.w,
+                      height: 120.h,
                       child: (kIsWeb)
                           ? RtcRemoteView.SurfaceView(
                               uid: e,
@@ -160,28 +161,28 @@ class Home extends GetView<HomeController> {
   _sair(){
     Get.defaultDialog(
         title: "Deseja sair da reunião?",
-        titleStyle: TextStyle(color: Colors.red),
+        titleStyle: TextStyle(color: Colors.red, fontSize: 18.sp),
         middleText: "",
         cancel: OutlinedButton(
           style: OutlinedButton.styleFrom(
-              padding: const EdgeInsets.only(
-                  left: 25, right: 25, top: 15, bottom: 15),
+              padding:  EdgeInsets.only(
+                  left: 25.sp, right: 25.sp, top: 15.sp, bottom: 15.sp),
               backgroundColor: Colors.red
               ),
           onPressed: ()=> Get.back(),
-          child: Text("Não", style: TextStyle(fontSize: 18, color: Colors.white),),
+          child: Text("Não", style: TextStyle(fontSize: 18.sp, color: Colors.white),),
         ),
       confirm: OutlinedButton(
         style: OutlinedButton.styleFrom(
-          padding: const EdgeInsets.only(
-              left: 25, right: 25, top: 15, bottom: 15),
+          padding:  EdgeInsets.only(
+              left: 25.sp, right: 25.sp, top: 15.sp, bottom: 15.sp),
           backgroundColor: Colors.blue
           ),
         onPressed: () {
           Get.back();
           controller.leaveChannel();
         },
-        child: Text("Sim", style: TextStyle(fontSize: 18, color: Colors.white)),
+        child: Text("Sim", style: TextStyle(fontSize: 18.sp, color: Colors.white)),
       ),
     );
   }
