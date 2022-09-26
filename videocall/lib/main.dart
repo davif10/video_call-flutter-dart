@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:video_call/routes/pages.dart';
+import 'package:videocall/routes/pages.dart';
 
 void main() {
   runApp(GetMaterialApp(
